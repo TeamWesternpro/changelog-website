@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discord Changelog Builder</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+
+  <header class="wrap header glass">
+    <div class="header__left">
+      <div class="logo" aria-hidden="true">◈</div>
+      <div>
+        <h1>Discord Changelog Builder</h1>
+        <p class="muted">Create a glassy changelog card + send it to Discord.</p>
+      </div>
+    </div>
+    <div class="header__right">
+      <span class="pill">Glass UI</span>
+      <span class="pill">Live Preview</span>
+      <span class="pill">Discord Webhook</span>
+    </div>
+  </header>
+
+  <main class="wrap grid">
+    <section class="panel glass">
+      <h2>New entry</h2>
+
+      <div class="field">
+        <label for="title">Title</label>
+        <input id="title" type="text" maxlength="120" placeholder="e.g. v1.2.0 - Performance improvements" />
+      </div>
+
+      <div class="field">
+        <label for="description">Description</label>
+        <textarea id="description" rows="5" maxlength="2000" placeholder="What changed? Add details, bullet points, etc."></textarea>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="datetime">Date &amp; time</label>
+          <input id="datetime" type="datetime-local" />
+        </div>
+        <div class="field">
+          <label for="color">Change colour</label>
+          <input id="color" type="color" value="#7c5cff" />
+        </div>
+      </div>
+
+      <div class="previewMini">
+        <h3>Discord webhook</h3>
+        <p class="muted small">Paste your webhook URL below. Your webhook URL is not saved to disk.</p>
+
+        <div class="field">
+          <label for="webhook">Webhook URL</label>
+          <input id="webhook" type="url" placeholder="https://discord.com/api/webhooks/..." />
+        </div>
+
+        <div class="actions">
+          <button id="send" class="primary" type="button">Send to Discord</button>
+          <button id="add" type="button">Add to changelog</button>
+          <button id="clear" type="button" class="ghost">Clear</button>
+        </div>
+
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="panel glass">
+      <div class="panel__head">
+        <h2>Live preview</h2>
+        <span class="muted small">What you’ll send as a Discord embed.</span>
+      </div>
+
+      <article id="preview" class="card" aria-label="Changelog preview">
+        <div class="card__accent" id="previewAccent"></div>
+        <div class="card__body">
+          <div class="card__meta">
+            <span class="card__tag" id="previewTag">Changelog</span>
+            <span class="card__time" id="previewTime">—</span>
+          </div>
+          <h3 id="previewTitle">Your title…</h3>
+          <p id="previewDesc" class="card__desc">Your description will appear here.</p>
+        </div>
+      </article>
+
+      <div class="divider" role="separator" aria-hidden="true"></div>
+
+      <div class="panel__head">
+        <h2>Saved changelogs</h2>
+        <span class="muted small">Entries you add will appear here.</span>
+      </div>
+
+      <div id="list" class="list" aria-live="polite"></div>
+    </section>
+
+  </main>
+
+
+  <footer class="wrap footer muted small">
+    Tip: open your browser devtools if Discord rejects the request (e.g., invalid webhook URL).
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
