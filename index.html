@@ -38,16 +38,45 @@
         <textarea id="description" rows="5" maxlength="2000" placeholder="What changed? Add details, bullet points, etc."></textarea>
       </div>
 
+      <div class="field-separator"></div>
+
       <div class="row">
         <div class="field">
           <label for="datetime">Date &amp; time</label>
           <input id="datetime" type="datetime-local" />
         </div>
         <div class="field">
-          <label for="color">Change colour</label>
+          <label for="color">Accent colour</label>
           <input id="color" type="color" value="#7c5cff" />
         </div>
       </div>
+
+      <div class="field-separator"></div>
+
+      <div class="row">
+        <div class="field">
+          <label for="fontFamily">Font</label>
+          <select id="fontFamily">
+            <option value="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">System</option>
+            <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Segoe UI</option>
+            <option value="'Georgia', 'Times New Roman', serif">Georgia</option>
+            <option value="'Courier New', Courier, monospace">Monospace</option>
+            <option value="'Trebuchet MS', Arial, sans-serif">Trebuchet</option>
+            <option value="Impact, Arial, sans-serif">Impact</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="textColor">Text colour</label>
+          <input id="textColor" type="color" value="#eaf0ff" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="imageFile">Image <span class="muted small">(optional)</span></label>
+        <input id="imageFile" type="file" accept="image/*" />
+      </div>
+
+      <div class="field-separator"></div>
 
       <div class="previewMini">
         <h3>Discord webhook</h3>
@@ -83,6 +112,7 @@
           </div>
           <h3 id="previewTitle">Your title…</h3>
           <p id="previewDesc" class="card__desc">Your description will appear here.</p>
+          <img id="previewImage" class="card__image" alt="Changelog image" style="display:none;" />
         </div>
       </article>
 
@@ -98,7 +128,6 @@
 
   </main>
 
-
   <footer class="wrap footer muted small">
     Tip: open your browser devtools if Discord rejects the request (e.g., invalid webhook URL).
   </footer>
@@ -106,4 +135,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-
